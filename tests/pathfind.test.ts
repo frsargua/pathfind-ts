@@ -9,7 +9,7 @@ describe("Pathfind", () => {
 
     expect(pathfind(A, P, Q)).toBe(-1);
   });
-  it("Matrix is filled with empty arrays", () => {
+  it("Matrix filled with empty arrays", () => {
     const A = [[], [], []];
     const P: Vector = { x: 0, y: 0 };
     const Q: Vector = { x: 1, y: 1 };
@@ -33,7 +33,7 @@ describe("Pathfind", () => {
 
     expect(pathfind(A, P, Q)).toBe(0);
   });
-  it("Single cell but unreachable", () => {
+  it("Single cell but with a false value", () => {
     const A = [[false]];
     const P: Vector = { x: 0, y: 0 };
     const Q: Vector = { x: 0, y: 0 };
@@ -308,7 +308,7 @@ describe("Pathfind", () => {
 
     expect(pathfind(A, P, Q)).toBe(-1);
   });
-  it("P is at a coordinate point and next to Q", () => {
+  it("P is at a wall point and next to Q", () => {
     const A = [
       [false, true, true, true, true],
       [true, false, false, false, true],
@@ -321,7 +321,7 @@ describe("Pathfind", () => {
 
     expect(pathfind(A, P, Q)).toBe(-1);
   });
-  it("Both is at a coordinates point and next to each other", () => {
+  it("Both is at a wall point and next to each other", () => {
     const A = [
       [false, true, true, true, true],
       [false, false, false, false, true],
@@ -352,23 +352,23 @@ describe("Pathfind", () => {
 
     expect(() => pathfind(A, P, Q)).toThrow();
   });
-  it("Vector where x or y is null", () => {
+  it("Vector's coordinate, x or y, is null", () => {
     const A = [
       [true, true],
       [true, true],
     ];
     const P: Vector = { x: null as any, y: 0 };
-    const Q: Vector = { x: 1 as any, y: 1 };
+    const Q: Vector = { x: 1, y: 1 };
 
     expect(() => pathfind(A, P, Q)).toThrow();
   });
-  it("Vector where x or y is undefined", () => {
+  it("Vector's coordinate, x or y, is undefined", () => {
     const A = [
       [true, true],
       [true, true],
     ];
     const P: Vector = { x: undefined as any, y: 0 };
-    const Q: Vector = { x: 1 as any, y: 1 };
+    const Q: Vector = { x: 1, y: 1 };
 
     expect(() => pathfind(A, P, Q)).toThrow();
   });

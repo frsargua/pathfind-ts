@@ -38,6 +38,14 @@ Please fill in the sections below after you complete the challenge.
 2. The efficiency, since i was able to run a test for a 1000\*1000 matrix in less than 0.5 seconds. Time complexity: O(m*n) and space complexity of O(m * n)
 3. The test coverage, which ensures the robustness of my solution
 
+- Tests
+
+  <img src="./Images/Screenshot.png" width="400">
+
+- Algorithm: BFS
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Animated_BFS.gif" width="200">
+
 ### What I Would Have Done With More Time
 
 I would have liked to build a front end UI to display how the algorithm works visually.Which I have done in the past, but with sorting algorithms.
