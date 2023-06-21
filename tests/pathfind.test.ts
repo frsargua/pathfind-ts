@@ -73,13 +73,13 @@ describe("Pathfind", () => {
   it("points are unreachable", () => {
     const A = [
       [true, true, true, true, true],
-      [false, false, false, false, true],
+      [false, false, false, false, false],
       [true, true, true, true, true],
       [true, true, true, true, true],
       [true, true, true, true, true],
     ];
     const P: Vector = { x: 0, y: 0 };
-    const Q: Vector = { x: 0, y: 0 };
+    const Q: Vector = { x: 0, y: 3 };
 
     expect(pathfind(A, P, Q)).toBe(-1);
   });
