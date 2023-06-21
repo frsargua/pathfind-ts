@@ -2,6 +2,30 @@ import { pathfind } from "../src/pathfind";
 import { Vector } from "../src/Vector.type";
 
 describe("Pathfind", () => {
+  it("An empty matrix", () => {
+    const A = [];
+    const P: Vector = { x: 0, y: 0 };
+    const Q: Vector = { x: 1, y: 1 };
+
+    expect(pathfind(A, P, Q)).toBe(-1);
+  });
+  it("Matrix is filled with empty arrays", () => {
+    const A = [[]];
+    const P: Vector = { x: 0, y: 0 };
+    const Q: Vector = { x: 1, y: 1 };
+
+    expect(pathfind(A, P, Q)).toBe(-1);
+  });
+  it("Non-integer coordinates", () => {
+    const A = [
+      [true, false],
+      [true, true],
+    ];
+    const P: Vector = { x: 0.5, y: 0 };
+    const Q: Vector = { x: 1, y: 1 };
+
+    expect(pathfind(A, P, Q)).toBe(-1);
+  });
   it("start and end the same", () => {
     const A = [
       [true, true, true, true, true],
@@ -12,6 +36,33 @@ describe("Pathfind", () => {
     ];
     const P: Vector = { x: 0, y: 0 };
     const Q: Vector = { x: 0, y: 0 };
+
+    expect(pathfind(A, P, Q)).toBe(0);
+  });
+
+  it("Matrix contains non-boolean values", () => {
+    const A = [
+      [true, true, true, true, true],
+      ["1", false, false, false, true],
+      ["true", true, true, true, true],
+      [true, true, true, true, true],
+      [true, true, true, true, true],
+    ];
+    const P: Vector = { x: 0, y: 0 };
+    const Q: Vector = { x: 0, y: 0 };
+
+    expect(pathfind(A as boolean[][], P, Q)).toBe(0);
+  });
+  it("Matrix with uniform dimenstions", () => {
+    const A = [
+      [true, true, true, true, true],
+      [false, false, false, false, true],
+      [true, true, true, true, true],
+      [true, true],
+      [true, true, true, true, true],
+    ];
+    const P: Vector = { x: 0, y: 0 };
+    const Q: Vector = { x: 4, y: 4 };
 
     expect(pathfind(A, P, Q)).toBe(0);
   });

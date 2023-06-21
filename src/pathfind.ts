@@ -10,6 +10,9 @@ export const pathfind = (A: boolean[][], P: Vector, Q: Vector): number => {
     { x: 0, y: 1 },
   ];
 
+  // If matrix is empty
+  if (!A.length || !A[0].length) return -1;
+
   // If original positions are walls return -1
   if (!A[P.y][P.x] || !A[Q.y][Q.x]) return -1;
 
