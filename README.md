@@ -46,5 +46,5 @@ Although these algorithms might not have a significant impact on this specific s
 
 #### What I would do to make it cleaner
 
-It would be a good idea to implement function as a method inside a class. Since, this would take advantage of typescript "OOP" functionality e.g. ShortestPathAlgorithm.
+It would be a good idea to implement this function as a method inside a class. Since, this would take advantage of typescript "OOP" functionality e.g. ShortestPathAlgorithm.
 This would make some bits of the code reusable (if i decided to implement more algorithms within the same class), and modular. However, that is outside the scope of this test, and it would required more tests to be build to test the class and the sub-methods.
