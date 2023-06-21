@@ -13,8 +13,19 @@ export const pathfind = (A: boolean[][], P: Vector, Q: Vector): number => {
   // If matrix is empty
   if (!A.length || !A[0].length) return -1;
 
-  // If original positions are walls return -1
-  if (!A[P.y][P.x] || !A[Q.y][Q.x]) return -1;
+  // Throw an error if positions are not number coordinates
+  // Alternative: If the coordinates are strings convert to right type
+  if (
+    ![P, Q].every(
+      (obj) => typeof obj.x === "number" && typeof obj.y === "number"
+    )
+  ) {
+    throw Error;
+  }
+
+  if (!A[P.y][P.x] || !A[Q.y][Q.x])
+    // If original positions are walls return -1
+    return -1;
 
   // All the locations are set to false
   // false = not visited
