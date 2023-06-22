@@ -1,6 +1,6 @@
 import { Vector } from "./Vector.type";
 
-// Take BFS approach, efficient for approach
+// Take BFS approach, an efficient approach
 export const pathfind = (A: boolean[][], P: Vector, Q: Vector): number => {
   // Allows points up, down, left and right to the current location to checked.
   const directions: Vector[] = [
@@ -14,6 +14,7 @@ export const pathfind = (A: boolean[][], P: Vector, Q: Vector): number => {
   if (!A.length || !A[0].length) return -1;
 
   // Throw an error if vector's coordinates are not of type  number.
+  // An alternative would be to return -1
   if (
     ![P, Q].every(
       (obj) => typeof obj.x === "number" && typeof obj.y === "number"
@@ -22,7 +23,7 @@ export const pathfind = (A: boolean[][], P: Vector, Q: Vector): number => {
     throw Error;
   }
 
-  // If original vectors are outside the walls return -1
+  // If original vectors falls outside the matrix's boundaries return -1
   if (!A[P.y][P.x] || !A[Q.y][Q.x]) return -1;
 
   // All the vectors/slots are set to false
@@ -32,7 +33,7 @@ export const pathfind = (A: boolean[][], P: Vector, Q: Vector): number => {
   // This tracks order in which the vectors will be checked.
   let queue = [{ position: P, distance: 0 }];
 
-  // If the queue is empty it means that the Q and Q are unreachable
+  // If the queue is empty it means that P and Q are unreachable.
   while (queue.length) {
     // Remove the first value in the queue
     let { position, distance } = queue.shift()!;
@@ -70,9 +71,9 @@ export const pathfind = (A: boolean[][], P: Vector, Q: Vector): number => {
         existInMatrix &&
         !hasBeenVisited
       ) {
-        // Update vector to be visited
+        // Mark new vector as visited
         visited[newPosition.y][newPosition.x] = true;
-        // Add new vector point to the queue to check it
+        // Add new vector point to the queue to check it against the destination
         queue.push({ position: newPosition, distance: distance + 1 });
       }
     });

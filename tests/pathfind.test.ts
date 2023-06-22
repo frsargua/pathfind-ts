@@ -68,7 +68,7 @@ describe("Pathfind", () => {
 
     expect(pathfind(A as boolean[][], P, Q)).toBe(0);
   });
-  it("Matrix with uniform dimensions", () => {
+  it("Matrix with non-uniform dimensions", () => {
     const A = [
       [true, true, true, true, true],
       [false, false, false, false, true],
@@ -81,7 +81,7 @@ describe("Pathfind", () => {
 
     expect(pathfind(A, P, Q)).toBe(14);
   });
-  it("Matrix with uniform dimensions 2; unsolvable", () => {
+  it("Matrix with non-uniform dimensions 2; unsolvable", () => {
     const A = [
       [true, true, true, true, true],
       [false, false, false, false, true],
@@ -102,7 +102,7 @@ describe("Pathfind", () => {
 
     expect(pathfind(A, P, Q)).toBe(-1);
   });
-  it("Matrix with uniform dimensions 3", () => {
+  it("Matrix with non-uniform dimensions 3", () => {
     const A = [
       [true, true, true, true, true],
       [false, false, false, false, true],
