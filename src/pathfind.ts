@@ -20,7 +20,7 @@ export const pathfind = (A: boolean[][], P: Vector, Q: Vector): number => {
       (obj) => typeof obj.x === "number" && typeof obj.y === "number"
     )
   ) {
-    throw Error;
+    throw new Error("Wrong input type");
   }
 
   // If original vectors falls outside the matrix's boundaries return -1
